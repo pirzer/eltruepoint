@@ -4,8 +4,9 @@
 <html class="h-100">
 
 <head>
-    <title>CodeStar Blog</title>
+    <title>Elpoint Blog</title>
 
+    <meta charset="utf-8"> <!-- added - Poll -->
     <link rel="preconnect" href="https://fonts.gstatic.com">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Lato:wght@300;700&display=swap" rel="stylesheet">
@@ -26,8 +27,8 @@
 
     <nav class="navbar navbar-expand-lg navbar-light bg-white">
         <div class="container-fluid">
-            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">c<span class="red-o">o</span>de<span
-                        class="thin">|star</span></span></span></a>
+            <a class="navbar-brand" href="{% url 'home' %}"><span class="brand">E<span class="red-o">l</span> <span
+                        class="thin">|point</span></span></span></a>
             <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbarText"
                 aria-controls="navbarText" aria-expanded="false" aria-label="Toggle navigation">
                 <span class="navbar-toggler-icon"></span>
@@ -37,10 +38,17 @@
                     <li class="nav-item">
                         <a class="nav-link active" aria-current="page" href="{% url 'home' %}">Home</a>
                     </li>
+                    <!-- Explaining website to the visitors -->
+                    <li class="nav-item">
+                        <a role="button" class="nav-link active" data-bs-toggle="modal" data-bs-target="#aboutModal">
+                            About
+                        </a>
+                    </li>
                     {% if user.is_authenticated %}
-                    <!-- <li class="nav-item">
-                        <a class="nav-link" href="{% url 'account_login' %}">Polls</a>
-                    </li> -->
+        <!-- Polls option in the main heading -->
+                    <li class="nav-item">
+                        <a class="nav-link" href="{% url 'polls:index' %}">Polls</a>
+                    </li>
                     <li class="nav-item">
                         <a class="nav-link" href="{% url 'account_logout' %}">Logout</a>
                     </li>
@@ -55,7 +63,7 @@
 
                 </ul>
                 <span class="navbar-text text-muted">
-                    adventures of a software developer
+                    Let's shout together "PlayBall!!!"
                 </span>
             </div>
         </div>
@@ -73,6 +81,29 @@
         </div>
     </div>
 
+    <!-- Modal for About text -->
+    <div class="modal fade" id="aboutModal" tabindex="-1" aria-labelledby="aboutModalLabel" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="modal-header">
+              <h5 class="modal-title" id="aboutModalLabel">About - Elpoint</h5>
+              <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body about-text">
+                Baseball [BASE] says it!!! is a website for registers users, curious fans, and even 
+                for BASE detractors. Everyone is free to explain and disscusse open topics.
+                We cheer that every single fan who loves this sport can share and post all the passion
+                here but respecting opinions, origins, ideas from our memebers. If you do not love BASE, 
+                we expected that you can comprenhend BASE a bit more. Please, register an account or 
+                login to shout together "Play Ball"
+            </div>
+            <div class="modal-footer">
+              <button type="button" class="btn btn-secondary" data-bs-dismiss="modal">Close</button>
+            </div>
+          </div>
+        </div>
+      </div>
+
     <main class="flex-shrink-0 main-bg">
 
         {% block content %}
@@ -82,7 +113,7 @@
 
     <!-- Footer -->
     <footer class="footer mt-auto py-3 dark-bg">
-        <p class="m-0 text-center text-white">Made by Code Instituters</p>
+        <p class="m-0 text-center text-white">Made by Elpoint Team</p>
         <p class="m-0 text-center text-white">Follow us: <i class="fab fa-facebook-square ms-3"></i>
             <i class="fab fa-twitter-square ms-3"></i>
             <i class="fab fa-instagram-square ms-3"></i>
@@ -93,7 +124,7 @@
             let messages = document.getElementById('msg');
             let alert = new bootstrap.Alert(messages);
             alert.close();
-        }, 2500);
+        }, 2000);
     </script>
 </body>
 
